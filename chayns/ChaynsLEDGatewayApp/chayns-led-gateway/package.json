@@ -1,0 +1,49 @@
+{
+    "name": "chayns-led-gateway",
+    "version": "1.0.0",
+    "private": true,
+    "description": "Controll App for the Chayns Neopixel LED Controller",
+    "keywords": [
+        "chayns",
+        "chayns-toolkit",
+        "react"
+    ],
+    "scripts": {
+        "build": "chayns-toolkit build",
+        "dev": "chayns-toolkit dev",
+        "start": "chayns-toolkit dev",
+        "format": "prettier . --write",
+        "lint": "chayns-toolkit lint",
+        "check-types": "tsc",
+        "test": "vitest"
+    },
+    "prettier": {
+        "proseWrap": "always",
+        "singleQuote": true,
+        "tabWidth": 4,
+        "printWidth": 100
+    },
+    "dependencies": {
+        "@chayns-components/core": "^5.5.41",
+        "@reduxjs/toolkit": "^2.12.0",
+        "chayns-api": "^3.4.4",
+        "react": "^19.2.8",
+        "react-dom": "^19.2.8",
+        "react-redux": "^9.3.0"
+    },
+    "devDependencies": {
+        "@testing-library/jest-dom": "^7.0.1",
+        "@testing-library/react": "^16.3.2",
+        "@testing-library/user-event": "^14.6.4",
+        "@types/react": "^19.2.18",
+        "@types/react-dom": "^19.2.4",
+        "@vitejs/plugin-react": "^6.0.5",
+        "@vitest/coverage-v8": "^4.1.10",
+        "chayns-toolkit": "^4.2.1",
+        "jsdom": "^30.0.1",
+        "prettier": "^3.9.6",
+        "prettier-plugin-packagejson": "^3.0.2",
+        "typescript": "^5.9.3",
+        "vitest": "^4.1.10"
+    }
+}
