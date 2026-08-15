@@ -36,7 +36,7 @@ const LightControl:React.FC<LightControlProps> = ({ device }) => {
         return switchState ? "Lich ausschalten" : "Licht einschalten";
     }
 
-    const generateComboboxSelection = ():IComboboxItems => {
+    const generateComboboxSelection = ():IComboBoxItems[] => {
         
         const listsArr:{text: string, value: string}[] = [];
         const configurationData:LightApp[] = config.lightApps;
