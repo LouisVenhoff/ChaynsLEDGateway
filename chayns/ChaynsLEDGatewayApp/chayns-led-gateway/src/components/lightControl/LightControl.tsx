@@ -1,5 +1,7 @@
 import { Button, ContentCard } from "@chayns-components/core";
+import StaticLightApp from "components/staticLightApp/StaticLight";
 import React, { useState } from "react";
+import "./LightControl.css"
 
 const LightControl:React.FC = () => {
     
@@ -16,9 +18,13 @@ const LightControl:React.FC = () => {
     
     return(
         <ContentCard>
-            <Button isSecondary={!switchState} onClick={toggleSwitchState}>
-                {loadButtonText()}
-            </Button>
+            <div className="light-control--main">
+                <Button isSecondary={!switchState} onClick={toggleSwitchState}>
+                    {loadButtonText()}
+                </Button>
+
+                <StaticLightApp />
+            </div>
         </ContentCard>
     );
 }
