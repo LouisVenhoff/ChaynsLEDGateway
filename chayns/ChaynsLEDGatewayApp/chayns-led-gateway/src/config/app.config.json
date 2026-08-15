@@ -36,5 +36,11 @@
             "name": "Badezimmer",
             "devices": []
         }
+    ],
+    "lightApps": [
+        {
+            "name": "Statisches Licht",
+            "appId": "staticLight"
+        }
     ]
 }

@@ -1,4 +1,4 @@
-import { Accordion, AccordionContent, Button } from "@chayns-components/core";
+import { Accordion, AccordionContent, Button, ComboBox } from "@chayns-components/core";
 import StaticLightApp from "components/staticLightApp/StaticLight";
 import React, { useEffect, useState } from "react";
 import { Device } from "types/config";
@@ -36,9 +36,13 @@ const LightControl:React.FC<LightControlProps> = ({ device }) => {
         <Accordion title={device.name}>
             <AccordionContent>
                 <div className="light-control--main">
-                    <Button isSecondary={!switchState} onClick={toggleSwitchState}>
-                        {loadButtonText()}
-                    </Button>
+                    <div className="light-control--selectors">
+                        <Button isSecondary={!switchState} onClick={toggleSwitchState}>
+                            {loadButtonText()}
+                        </Button>
+
+                        {selectedApp !== null ? <ComboBox placeholder="Auswählen" lists={[{list: [{text: "Statisches Licht", value: "staticLight"}]}]} /> : null}
+                    </div>
 
                     {selectedApp}
                 </div>

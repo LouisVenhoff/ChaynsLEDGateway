@@ -1,10 +1,10 @@
 import { Accordion, AccordionContent, AccordionGroup, Button } from '@chayns-components/core';
 import React, { useState, JSX, useEffect } from 'react';
 import LightControl from './lightControl/LightControl';
-import roomsConfig from '../config/rooms.config.json';
+import appConfig from '../config/app.config.json';
 import { AppConfig } from '../types/config';
 
-const config = roomsConfig as AppConfig;
+const config = appConfig as AppConfig;
 
 const App = () => {
 
@@ -13,7 +13,6 @@ const App = () => {
     useEffect(() => {
         createSections();
     }, []);
-
 
     const createSections = () => {
 
@@ -32,7 +31,6 @@ const App = () => {
         });
         setSections(tempSections);
     }
-    
     
     return(
     <>
