@@ -1,0 +1,46 @@
+{
+    "rooms": [
+        {
+            "id": "wohnzimmer",
+            "name": "Wohnzimmer",
+            "devices": [
+                { "id": "wohnzimmer-deckenlicht", "name": "Deckenlicht", "type": "static" }
+            ]
+        },
+        {
+            "id": "kueche",
+            "name": "Küche",
+            "devices": [
+                { "id": "kueche-deckenlicht", "name": "Deckenlicht", "type": "static" }
+            ]
+        },
+        {
+            "id": "schlafzimmer",
+            "name": "Schlafzimmer",
+            "devices": [
+                { "id": "schlafzimmer-deckenlicht", "name": "Deckenlicht", "type": "static" }
+            ]
+        },
+        {
+            "id": "buero",
+            "name": "Büro",
+            "devices": [
+                { "id": "buero-deckenlicht", "name": "Deckenlicht", "type": "static" }
+            ]
+        },
+        {
+            "id": "flur",
+            "name": "Flur",
+            "devices": [
+                { "id": "flur-deckenlicht", "name": "Deckenlicht", "type": "static" }
+            ]
+        },
+        {
+            "id": "badezimmer",
+            "name": "Badezimmer",
+            "devices": [
+                { "id": "badezimmer-deckenlicht", "name": "Deckenlicht", "type": "static" }
+            ]
+        }
+    ]
+}
