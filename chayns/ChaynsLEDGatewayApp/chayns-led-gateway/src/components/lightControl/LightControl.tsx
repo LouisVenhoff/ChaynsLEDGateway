@@ -1,8 +1,13 @@
 import { Accordion, AccordionContent, Button, ComboBox } from "@chayns-components/core";
 import StaticLightApp from "components/staticLightApp/StaticLight";
 import React, { useEffect, useState } from "react";
-import { Device } from "types/config";
+import { Device, LightApp } from "types/config";
 import "./LightControl.css"
+import appConfig from "../../config/app.config.json";
+import { AppConfig } from "types/config";
+import { IComboBoxItems } from "@chayns-components/core/lib/types/components/combobox/ComboBox.types";
+
+const config = appConfig as AppConfig;
 
 interface LightControlProps {
     device: Device;
@@ -31,6 +36,18 @@ const LightControl:React.FC<LightControlProps> = ({ device }) => {
         return switchState ? "Lich ausschalten" : "Licht einschalten";
     }
 
+    const generateComboboxSelection = ():IComboboxItems => {
+        
+        const listsArr:{text: string, value: string}[] = [];
+        const configurationData:LightApp[] = config.lightApps;
+
+        configurationData.forEach((app: LightApp) => {
+            listsArr.push({text: app.name, value: app.appId});
+        });
+        
+        return[{list: listsArr}]
+    }
+
 
     return(
         <Accordion title={device.name}>
@@ -41,7 +58,7 @@ const LightControl:React.FC<LightControlProps> = ({ device }) => {
                             {loadButtonText()}
                         </Button>
 
-                        {selectedApp !== null ? <ComboBox placeholder="Auswählen" lists={[{list: [{text: "Statisches Licht", value: "staticLight"}]}]} /> : null}
+                        {selectedApp !== null ? <ComboBox placeholder="Auswählen" lists={generateComboboxSelection()} /> : null}
                     </div>
 
                     {selectedApp}

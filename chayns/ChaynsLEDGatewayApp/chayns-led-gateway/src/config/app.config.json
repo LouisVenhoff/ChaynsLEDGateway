@@ -41,6 +41,10 @@
         {
             "name": "Statisches Licht",
             "appId": "staticLight"
+        },
+        {
+            "name": "Wellenfunktion",
+            "appId": "waveFunction"
         }
     ]
 }
