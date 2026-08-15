@@ -1,11 +1,12 @@
 import { Accordion, AccordionContent, Button, ComboBox } from "@chayns-components/core";
 import StaticLightApp from "components/staticLightApp/StaticLight";
-import React, { useEffect, useState } from "react";
+import React, { JSX, useEffect, useState } from "react";
 import { Device, LightApp } from "types/config";
 import "./LightControl.css"
 import appConfig from "../../config/app.config.json";
 import { AppConfig } from "types/config";
 import { IComboBoxItems, IComboBoxItem } from "@chayns-components/core/lib/types/components/combobox/ComboBox.types";
+import PlaceholderApp from "components/placeholderApp/PlaceholderApp";
 
 const config = appConfig as AppConfig;
 
@@ -58,6 +59,23 @@ const LightControl:React.FC<LightControlProps> = ({ device }) => {
         if(!selectedApp) return;
 
         setSelectedComboboxItem({text: selectedApp.name, value: selectedApp.appId});
+
+        updateLightApp(selectedApp.appId);
+    }
+
+    const updateLightApp = (appId: string) => {
+        const app:JSX.Element = getLightAppFromAppId(appId);
+
+        setSelectedApp(app);
+    }
+
+    const getLightAppFromAppId = (appId: string):JSX.Element => {
+        switch(appId){
+            case "staticLight":
+                return <StaticLightApp />
+            default:
+                return <PlaceholderApp />
+        }
     }
 
     return(
