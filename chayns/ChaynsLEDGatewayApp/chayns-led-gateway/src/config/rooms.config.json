@@ -4,21 +4,19 @@
             "id": "wohnzimmer",
             "name": "Wohnzimmer",
             "devices": [
-                { "id": "wohnzimmer-deckenlicht", "name": "Deckenlicht", "type": "static" }
+                { "id": "sideboard-grip-ambiente", "name": "Fernsehschrank", "type": "static" }
             ]
         },
         {
             "id": "kueche",
             "name": "Küche",
-            "devices": [
-                { "id": "kueche-deckenlicht", "name": "Deckenlicht", "type": "static" }
-            ]
+            "devices": []
         },
         {
             "id": "schlafzimmer",
             "name": "Schlafzimmer",
             "devices": [
-                { "id": "schlafzimmer-deckenlicht", "name": "Deckenlicht", "type": "static" }
+                { "id": "bed-ambiente", "name": "Bett", "type": "static" }
             ]
         },
         {
@@ -31,16 +29,12 @@
         {
             "id": "flur",
             "name": "Flur",
-            "devices": [
-                { "id": "flur-deckenlicht", "name": "Deckenlicht", "type": "static" }
-            ]
+            "devices": []
         },
         {
             "id": "badezimmer",
             "name": "Badezimmer",
-            "devices": [
-                { "id": "badezimmer-deckenlicht", "name": "Deckenlicht", "type": "static" }
-            ]
+            "devices": []
         }
     ]
 }
