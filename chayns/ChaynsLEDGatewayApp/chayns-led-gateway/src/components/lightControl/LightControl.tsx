@@ -5,7 +5,7 @@ import { Device, LightApp } from "types/config";
 import "./LightControl.css"
 import appConfig from "../../config/app.config.json";
 import { AppConfig } from "types/config";
-import { IComboBoxItems } from "@chayns-components/core/lib/types/components/combobox/ComboBox.types";
+import { IComboBoxItems, IComboBoxItem } from "@chayns-components/core/lib/types/components/combobox/ComboBox.types";
 
 const config = appConfig as AppConfig;
 
@@ -15,9 +15,11 @@ interface LightControlProps {
 
 const LightControl:React.FC<LightControlProps> = ({ device }) => {
 
+    const defaultSelection:IComboBoxItem = {text: config.lightApps[0].name, value: config.lightApps[0].appId}
     const [switchState, setSwitchState] = useState<boolean>(false);
     const [selectedApp, setSelectedApp] = useState<JSX.Element | null>();
 
+    const [selectedComboboxItem,  setSelectedComboboxItem] = useState<IComboBoxItem>(defaultSelection);
 
     useEffect(() => {
         if(switchState){
@@ -48,6 +50,15 @@ const LightControl:React.FC<LightControlProps> = ({ device }) => {
         return[{list: listsArr}]
     }
 
+    const onComboboxChange = (data:any) => {
+        const selectedApp:LightApp | undefined = config.lightApps.find(({name, appId}) => {
+            return appId == data.value;
+        });
+
+        if(!selectedApp) return;
+
+        setSelectedComboboxItem({text: selectedApp.name, value: selectedApp.appId});
+    }
 
     return(
         <Accordion title={device.name}>
@@ -58,7 +69,7 @@ const LightControl:React.FC<LightControlProps> = ({ device }) => {
                             {loadButtonText()}
                         </Button>
 
-                        {selectedApp !== null ? <ComboBox placeholder="Auswählen" lists={generateComboboxSelection()} /> : null}
+                        {selectedApp !== null ? <ComboBox onSelect={onComboboxChange} selectedItem={selectedComboboxItem} placeholder="Auswählen" lists={generateComboboxSelection()} /> : null}
                     </div>
 
                     {selectedApp}
