@@ -1,9 +1,6 @@
-export type DeviceType = 'static';
-
 export interface Device {
     id: string;
     name: string;
-    type: DeviceType;
 }
 
 export interface Room {

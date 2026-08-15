@@ -4,7 +4,7 @@
             "id": "wohnzimmer",
             "name": "Wohnzimmer",
             "devices": [
-                { "id": "sideboard-grip-ambiente", "name": "Fernsehschrank", "type": "static" }
+                { "id": "sideboard-grip-ambiente", "name": "Fernsehschrank" }
             ]
         },
         {
@@ -16,14 +16,14 @@
             "id": "schlafzimmer",
             "name": "Schlafzimmer",
             "devices": [
-                { "id": "bed-ambiente", "name": "Bett", "type": "static" }
+                { "id": "bed-ambiente", "name": "Bett" }
             ]
         },
         {
             "id": "buero",
             "name": "Büro",
             "devices": [
-                { "id": "buero-deckenlicht", "name": "Deckenlicht", "type": "static" }
+                { "id": "buero-deckenlicht", "name": "Deckenlicht" }
             ]
         },
         {
