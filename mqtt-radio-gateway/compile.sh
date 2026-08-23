@@ -1,1 +1,2 @@
-g++ ./src/main.cpp ./src/mqtt.cpp
+cmake -B build
+cmake --build build

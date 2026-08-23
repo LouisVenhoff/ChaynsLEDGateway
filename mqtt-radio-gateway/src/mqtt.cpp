@@ -3,3 +3,7 @@
 void sendMessage(){
     std::cout << "Hello from MQTT";
 }
+
+int subscribeToBroker(){
+    
+}
