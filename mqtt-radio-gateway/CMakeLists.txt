@@ -2,6 +2,10 @@ cmake_minimum_required(VERSION 3.5)
 
 project(mqtt-radio-gateway LANGUAGES CXX)
 
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
 include(FetchContent)
 
 FetchContent_Declare(
@@ -27,6 +31,8 @@ FetchContent_Declare(
 set(PAHO_WITH_MQTT_C ON CACHE BOOL "" FORCE)
 set(PAHO_BUILD_SHARED ON CACHE BOOL "" FORCE)
 set(PAHO_BUILD_STATIC OFF CACHE BOOL "" FORCE)
+set(PAHO_WITH_SSL ON CACHE BOOL "" FORCE)
+set(PAHO_WITH_WEBSOCKETS ON CACHE BOOL "" FORCE)
 
 FetchContent_MakeAvailable(cpr)
 FetchContent_MakeAvailable(nlohmann_json)
