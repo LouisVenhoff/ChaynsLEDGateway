@@ -1,7 +1,7 @@
 #include "mqtt.h"
 
-const string SERVER_ADDRESS("mqtt://mqtt.chayns.io:1883");
-const string CLIENT_ID("99825-09414-o3LhwJr7");
+extern const string SERVER_ADDRESS("mqtt://mqtt.chayns.io:1883");
+extern const string CLIENT_ID("99825-09414-o3LhwJr7");
 const string PWD("It2lVpoXgyd8hdNqUS24");
 const string TOPIC("test-louis-dev");
 
@@ -12,12 +12,10 @@ class callback : public virtual mqtt::callback {
 };
 
 
-int connectToBroker(mqtt::async_client* mqtt_client){
-    mqtt::async_client client(SERVER_ADDRESS, CLIENT_ID);
+int connectToBroker(mqtt::async_client& mqtt_client){
+    static callback cb;
 
-    callback cb;
-
-    client.set_callback(cb);
+    mqtt_client.set_callback(cb);
 
     mqtt::connect_options conOpts;
 
@@ -27,9 +25,7 @@ int connectToBroker(mqtt::async_client* mqtt_client){
     conOpts.set_password(PWD);
 
     try{
-        client.connect(conOpts) -> wait();
-
-        mqtt_client = &client;
+        mqtt_client.connect(conOpts) -> wait();
 
         cout << "Connected to EMQX broker" << endl;
         return 0;
@@ -38,14 +34,12 @@ int connectToBroker(mqtt::async_client* mqtt_client){
         cout << "Connection failed!" << exc.what() << endl;
         return -1;
     }
-
-    return 0;
 }
 
-int subscribeTopic(mqtt::async_client* mqtt_client){
-    
+int subscribeTopic(mqtt::async_client& mqtt_client){
+
     try{
-        mqtt_client->subscribe(TOPIC, 1)->wait();
+        mqtt_client.subscribe(TOPIC, 1)->wait();
     }
     catch(mqtt::exception& exc){
         cout << "Connection failed!" << exc.what() << endl;
@@ -53,5 +47,6 @@ int subscribeTopic(mqtt::async_client* mqtt_client){
     }
 
     std::cout << "Subscribed to" << TOPIC << std::endl;
+    return 0;
 }
 

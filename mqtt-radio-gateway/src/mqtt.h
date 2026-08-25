@@ -7,7 +7,12 @@
 using namespace std;
 //using namespace mqtt;
 
-int connectToBroker(mqtt::async_client* mqtt_client);
+extern const string SERVER_ADDRESS;
+extern const string CLIENT_ID;
+
+int connectToBroker(mqtt::async_client& mqtt_client);
+
+int subscribeTopic(mqtt::async_client& mqtt_client);
 
 void sendMessage();
 
