@@ -4,6 +4,8 @@
 int main() {
     std::cout << "ChaynsLEDGateway MQTT to 433MHZ Radio Gateway";
 
-    sendMessage();
+    mqtt::async_client* mqtt_cl;
+
+    int result = connectToBroker(mqtt_cl);
     return 0;
 }
