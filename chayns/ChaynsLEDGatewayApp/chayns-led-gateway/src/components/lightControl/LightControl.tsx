@@ -77,7 +77,7 @@ const LightControl:React.FC<LightControlProps> = ({ device }) => {
     const getLightAppFromAppId = (appId: string):JSX.Element => {
         switch(appId){
             case "staticLight":
-                return <StaticLightApp />
+                return <StaticLightApp onBrightnessChange={(brightness: number) => {console.log(`Bright: ${brightness}`)}} onColorChange={() => {}} />
             default:
                 return <PlaceholderApp />
         }

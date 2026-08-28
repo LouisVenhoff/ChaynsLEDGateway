@@ -5,7 +5,9 @@ import { Accordion, AccordionContent, Slider } from "@chayns-components/core";
 import { AppControl } from "interfaces/appControl";
 import { SliderInterval } from "@chayns-components/core/lib/types/components/slider/Slider";
 
-interface StaticLightAppInterface extends AppControl{};
+interface StaticLightAppInterface extends AppControl{
+    onBrightnessChange: (brightness: number) => void;
+};
 
 const StaticLightApp:React.FC<StaticLightAppInterface> = ({onColorChange, onBrightnessChange}) => {
     
@@ -13,12 +15,13 @@ const StaticLightApp:React.FC<StaticLightAppInterface> = ({onColorChange, onBrig
     const [brightness, setBrightness] = useState<number>(0);
     
     useEffect(() => {
-        console.log(brightness);
+        //onBrightnessChange(brightness);
+        console.log(onBrightnessChange)
     }, [brightness]);
 
     useEffect(() => {
-        console.log(color);
-    });
+        //onColorChange(color);
+    }, [color]);
 
 
     const parseRgb = (rawColor: React.CSSProperties["color"]): [number, number, number] => {
