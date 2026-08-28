@@ -7,6 +7,7 @@ import appConfig from "../../config/app.config.json";
 import { AppConfig } from "types/config";
 import { IComboBoxItems, IComboBoxItem } from "@chayns-components/core/lib/types/components/combobox/ComboBox.types";
 import PlaceholderApp from "components/placeholderApp/PlaceholderApp";
+import LightState from "classes/lightState";
 
 const config = appConfig as AppConfig;
 
@@ -22,12 +23,16 @@ const LightControl:React.FC<LightControlProps> = ({ device }) => {
 
     const [selectedComboboxItem,  setSelectedComboboxItem] = useState<IComboBoxItem>(defaultSelection);
 
+    let lampState:LightState = LightState.loadInitialized(device.id);
+
     useEffect(() => {
         if(switchState){
             setSelectedApp(<StaticLightApp />);
+            lampState.enabled = true;
         }
         else{
             setSelectedApp(null);
+            lampState.enabled = false;
         }
     }, [switchState]);
 

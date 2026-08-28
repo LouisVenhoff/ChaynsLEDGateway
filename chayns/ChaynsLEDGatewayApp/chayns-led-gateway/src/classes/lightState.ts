@@ -34,16 +34,23 @@ class LightState{
         this._brightness = brightness;
     }
 
+    public static loadInitialized(address:string):LightState{
+        return new LightState(address, false, "#000000", Animation.static, 10);
+    }
+
     public set enabled(state: boolean){
-        this.enabled = state;
+        this._enabled = state;
+        this.sendUpdate();
     }
 
     public set color(color: string){
-        this.color = color;
+        this._color = color;
+        this.sendUpdate();
     }
 
     public set animation(animation: Animation){
         this._animation=animation;
+        this.sendUpdate();
     }
 
     public set brightness(brightness: number){
@@ -52,6 +59,7 @@ class LightState{
         }
 
         this._brightness = brightness;
+        this.sendUpdate();
     }
 
     private sendUpdate = () => {
