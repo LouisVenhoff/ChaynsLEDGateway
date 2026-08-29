@@ -46,7 +46,7 @@ const StaticLightApp:React.FC<StaticLightAppInterface> = ({onColorChange, onBrig
 
         <Accordion isOpened isFixed key={"brightness"} title={"Helligkeit"}>
             <AccordionContent>
-                <Slider minValue={0} maxValue={100} onChange={(value: number, _?:SliderInterval) => {setBrightness(value)}} />
+                <Slider minValue={0} maxValue={100} onChange={(value?: number, _?:SliderInterval) => {setBrightness(value || 0)}} />
             </AccordionContent>
         </Accordion>
     </div>);

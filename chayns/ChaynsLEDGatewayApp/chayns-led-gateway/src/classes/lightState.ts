@@ -8,7 +8,7 @@ export enum Animation {
 type LightStateDTO = {
     address: string,
     enabled: boolean,
-    color: string,
+    color: number[],
     animation: number,
     brightness: number,
 }
@@ -17,11 +17,11 @@ class LightState{
 
     private address: string;
     private _enabled:boolean;
-    private _color: string;
+    private _color: number[];
     private _animation: Animation;
     private _brightness: number;
 
-    constructor(address: string, enabled: boolean, color: string, animation: Animation, brightness: number){
+    constructor(address: string, enabled: boolean, color: number[], animation: Animation, brightness: number){
         
         if(brightness < 0 || brightness > 100 ){
             throw new BrightnessOutOfRangeException(brightness);
@@ -35,7 +35,7 @@ class LightState{
     }
 
     public static loadInitialized(address:string):LightState{
-        return new LightState(address, false, "#000000", Animation.static, 10);
+        return new LightState(address, false, [0, 0, 0], Animation.static, 10);
     }
 
     public set enabled(state: boolean){
@@ -43,7 +43,7 @@ class LightState{
         this.sendUpdate();
     }
 
-    public set color(color: string){
+    public set color(color: number[]){
         this._color = color;
         this.sendUpdate();
     }
@@ -77,8 +77,6 @@ class LightState{
             brightness: this._brightness
         }
     }
-
-
 }
 
 export default LightState;

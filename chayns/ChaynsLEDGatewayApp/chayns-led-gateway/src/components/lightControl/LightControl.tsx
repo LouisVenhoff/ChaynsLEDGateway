@@ -27,7 +27,7 @@ const LightControl:React.FC<LightControlProps> = ({ device }) => {
 
     useEffect(() => {
         if(switchState){
-            setSelectedApp(<StaticLightApp onBrightnessChange={(brightness: number) => {console.log(`Bright: ${brightness}`)}} onColorChange={() => {}} />);
+            setSelectedApp(<StaticLightApp onBrightnessChange={onBrightnessChange} onColorChange={onColorChange} />);
             lampState.enabled = true;
         }
         else{
@@ -81,6 +81,14 @@ const LightControl:React.FC<LightControlProps> = ({ device }) => {
             default:
                 return <PlaceholderApp />
         }
+    }
+
+    const onBrightnessChange = (brightness: number) => {
+        lampState.brightness = brightness;
+    }
+
+    const onColorChange = (color: number[]) => {
+        lampState.color = color;
     }
 
     return(
