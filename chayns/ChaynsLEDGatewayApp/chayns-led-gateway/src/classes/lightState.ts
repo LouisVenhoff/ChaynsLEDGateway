@@ -1,11 +1,12 @@
 import BrightnessOutOfRangeException from "errors/brightnessOutOfRange";
+import usePublish from "hooks/usePublish";
 
 export enum Animation {
     static,
     wave
 }
 
-type LightStateDTO = {
+export type LightStateDTO = {
     address: string,
     enabled: boolean,
     color: number[],
@@ -20,6 +21,8 @@ class LightState{
     private _color: number[];
     private _animation: Animation;
     private _brightness: number;
+
+    private publish = usePublish();
 
     constructor(address: string, enabled: boolean, color: number[], animation: Animation, brightness: number){
         
@@ -65,7 +68,7 @@ class LightState{
     private sendUpdate = () => {
         const dto:string = JSON.stringify(this.generateDTO());
 
-        console.log(`Publishing: ${dto}`);
+        this.publish(dto);
     }
 
     private generateDTO():LightStateDTO{
