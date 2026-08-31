@@ -1,0 +1,7 @@
+POST https://run.chayns.codes/eb9d17e4/lightState
+
+{
+   content: {
+    hallo: "test"
+   }
+}

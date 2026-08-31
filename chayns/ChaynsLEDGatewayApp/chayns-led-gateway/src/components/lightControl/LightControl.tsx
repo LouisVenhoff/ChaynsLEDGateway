@@ -7,6 +7,7 @@ import appConfig from "../../config/app.config.json";
 import { AppConfig } from "types/config";
 import { IComboBoxItems, IComboBoxItem } from "@chayns-components/core/lib/types/components/combobox/ComboBox.types";
 import PlaceholderApp from "components/placeholderApp/PlaceholderApp";
+import LightState from "classes/lightState";
 
 const config = appConfig as AppConfig;
 
@@ -22,12 +23,16 @@ const LightControl:React.FC<LightControlProps> = ({ device }) => {
 
     const [selectedComboboxItem,  setSelectedComboboxItem] = useState<IComboBoxItem>(defaultSelection);
 
+    let lampState:LightState = LightState.loadInitialized(device.id);
+
     useEffect(() => {
         if(switchState){
-            setSelectedApp(<StaticLightApp />);
+            setSelectedApp(<StaticLightApp onBrightnessChange={onBrightnessChange} onColorChange={onColorChange} />);
+            lampState.enabled = true;
         }
         else{
             setSelectedApp(null);
+            lampState.enabled = false;
         }
     }, [switchState]);
 
@@ -72,10 +77,18 @@ const LightControl:React.FC<LightControlProps> = ({ device }) => {
     const getLightAppFromAppId = (appId: string):JSX.Element => {
         switch(appId){
             case "staticLight":
-                return <StaticLightApp />
+                return <StaticLightApp onBrightnessChange={(brightness: number) => {console.log(`Bright: ${brightness}`)}} onColorChange={() => {}} />
             default:
                 return <PlaceholderApp />
         }
+    }
+
+    const onBrightnessChange = (brightness: number) => {
+        lampState.brightness = brightness;
+    }
+
+    const onColorChange = (color: number[]) => {
+        lampState.color = color;
     }
 
     return(
