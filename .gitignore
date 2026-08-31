@@ -201,3 +201,6 @@ dist
 .svelte-kit
 
 # End of https://www.toptal.com/developers/gitignore/api/kicad,node,cmake
+
+#chayns app
+chayns/ChaynsLEDGatewayApp/chayns-led-gateway/build
