@@ -16,6 +16,8 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 COPY --from=builder /opt/chayns-led-gateway/build/ /usr/share/nginx/html/
 
-EXPOSE 2000
+EXPOSE 2000 2443
+
+VOLUME /etc/letsencrypt
 
 CMD ["nginx", "-g", "daemon off;"]
