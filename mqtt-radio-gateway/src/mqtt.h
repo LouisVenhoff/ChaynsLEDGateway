@@ -3,6 +3,9 @@
 
 #include <iostream>
 #include <mqtt/async_client.h>
+#include <nlohmann/json.hpp>
+
+#include "protocolParser.h"
 
 using namespace std;
 //using namespace mqtt;

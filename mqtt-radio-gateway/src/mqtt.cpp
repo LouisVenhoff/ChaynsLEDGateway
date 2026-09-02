@@ -1,13 +1,43 @@
 #include "mqtt.h"
 
+using json = nlohmann::json;
+
+
 extern const string SERVER_ADDRESS("mqtt://mqtt.chayns.io:1883");
-extern const string CLIENT_ID("99825-09414-o3LhwJr7");
-const string PWD("It2lVpoXgyd8hdNqUS24");
-const string TOPIC("test-louis-dev");
+extern const string CLIENT_ID("99825-09414-vQWMKzXq");
+const string PWD("r2VjIYeNnBXmtPT3qp2x");
+const string TOPIC("chayns-led");
 
 class callback : public virtual mqtt::callback {
     void message_arrived(mqtt::const_message_ptr msg) override {
-        std::cout << "Message received:" << msg->get_payload_str() << std::endl;
+        //std::cout << "Message received:" << msg->get_payload_str() << std::endl;
+
+        json data = json::parse(msg->get_payload_str());
+
+        std::cout << data["address"] << std::endl;
+        
+        string addressString = data["address"];
+        u_int8_t address = stoi(addressString);
+        
+        bool enabled = data["enabled"];
+
+
+
+        auto colorString = data["color"];
+        u_int8_t animation = data["animation"];
+        int brightness = static_cast<int>(data["brightness"]);
+
+        // std::cout << address << std::endl;
+        // std::cout << enabled << std::endl;
+        // std::cout << color[0] << std::endl;
+        // std::cout << animation << std::endl;
+        // std::cout << brightness << std::endl;
+
+        // std::cout << address << endl;
+        // std::cout << enabled << endl;
+        // std::cout << colorString[0] << endl;
+        // std::cout << animation << endl;
+        // std::cout << brightness << endl;
     }
 };
 
