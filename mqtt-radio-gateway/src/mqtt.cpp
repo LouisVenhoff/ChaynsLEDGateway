@@ -27,17 +27,6 @@ class callback : public virtual mqtt::callback {
         u_int8_t animation = data["animation"];
         int brightness = static_cast<int>(data["brightness"]);
 
-        // std::cout << address << std::endl;
-        // std::cout << enabled << std::endl;
-        // std::cout << color[0] << std::endl;
-        // std::cout << animation << std::endl;
-        // std::cout << brightness << std::endl;
-
-        // std::cout << address << endl;
-        // std::cout << enabled << endl;
-        // std::cout << colorArray[0] << endl;
-        // std::cout << animation << endl;
-        // std::cout << brightness << endl;
 
         cmd command;
         command.address = address;

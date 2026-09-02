@@ -1,8 +1,6 @@
 #ifndef MQTT_H
 #define MQTT_H
 
-#include <array>
-#include <cstdint>
 #include <iostream>
 #include <mqtt/async_client.h>
 #include <nlohmann/json.hpp>
@@ -13,7 +11,7 @@ using namespace std;
 struct cmd {
     u_int8_t address;
     bool enabled;
-    std::array<uint8_t, 3> color;
+    array<string, 3> color;
     u_int8_t animation;
     int brightness;
 };
