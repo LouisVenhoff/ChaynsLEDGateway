@@ -38,7 +38,7 @@ FetchContent_MakeAvailable(cpr)
 FetchContent_MakeAvailable(nlohmann_json)
 FetchContent_MakeAvailable(paho_mqtt_cpp)
 
-add_executable(mqtt-radio-gateway ./src/main.cpp ./src/mqtt.cpp)
+add_executable(mqtt-radio-gateway ./src/main.cpp ./src/mqtt.cpp ./src/protocolParser.cpp)
 
 target_link_libraries(mqtt-radio-gateway PRIVATE cpr::cpr)
 target_link_libraries(mqtt-radio-gateway PRIVATE nlohmann_json::nlohmann_json)

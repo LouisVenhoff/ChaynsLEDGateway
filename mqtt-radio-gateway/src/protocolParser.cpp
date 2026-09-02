@@ -1,7 +1,5 @@
 #include "protocolParser.h"
 
-using json = nlohmann::json;
-
-int generateProtocolBytes(nlohmann::json data){
+int generateProtocolBytes(cmd command){
     std::cout << "Generating protocol bytes" << std::endl;
 }
