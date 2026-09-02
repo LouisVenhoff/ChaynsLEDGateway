@@ -5,5 +5,6 @@
 #include <stdio.h>
 #include <nlohmann/json.hpp>
 
+int generateProtocolBytes(nlohmann::json data);
 
 #endif

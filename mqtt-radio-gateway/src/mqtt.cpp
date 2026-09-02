@@ -8,6 +8,15 @@ extern const string CLIENT_ID("99825-09414-vQWMKzXq");
 const string PWD("r2VjIYeNnBXmtPT3qp2x");
 const string TOPIC("chayns-led");
 
+struct cmd {
+    u_int8_t address;
+    bool enabled;
+    string color;
+    u_int8_t animation;
+
+};
+
+
 class callback : public virtual mqtt::callback {
     void message_arrived(mqtt::const_message_ptr msg) override {
         //std::cout << "Message received:" << msg->get_payload_str() << std::endl;
@@ -38,6 +47,8 @@ class callback : public virtual mqtt::callback {
         // std::cout << colorString[0] << endl;
         // std::cout << animation << endl;
         // std::cout << brightness << endl;
+
+        generateProtocolBytes(data);
     }
 };
 
