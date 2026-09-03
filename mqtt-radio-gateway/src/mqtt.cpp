@@ -31,9 +31,9 @@ class callback : public virtual mqtt::callback {
         cmd command;
         command.address = address;
         command.enabled = enabled;
-        command.color[0] = colorArray[0].get<uint8_t>();
-        command.color[1] = colorArray[1].get<uint8_t>();
-        command.color[2] = colorArray[2].get<uint8_t>();
+        command.colorR = colorArray[0].get<uint8_t>();
+        command.colorG = colorArray[1].get<uint8_t>();
+        command.colorB = colorArray[2].get<uint8_t>();
         command.animation = animation;
         command.brightness = brightness;
 

@@ -10,10 +10,12 @@ using namespace std;
 
 struct cmd {
     u_int8_t address;
-    bool enabled;
-    array<string, 3> color;
+    u_int8_t enabled;
+    uint8_t colorR;
+    uint8_t colorG;
+    uint8_t colorB;
     u_int8_t animation;
-    int brightness;
+    u_int8_t brightness;
 };
 
 #include "protocolParser.h"
