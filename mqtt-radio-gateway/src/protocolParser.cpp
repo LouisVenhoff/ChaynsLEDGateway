@@ -1,7 +1,7 @@
 #include "protocolParser.h"
 
-int send(array<uint8_t, 6> word){
-    for(int i = 0; i <= 5; i++){
+int send(vector<uint8_t> word){
+    for(int i = 0; i <= 6; i++){
         std::cout << std::bitset<8>(word[i]) << " ";
 
         if(i == 5){
@@ -11,7 +11,7 @@ int send(array<uint8_t, 6> word){
 }
 
 int generateProtocolBytes(cmd command){
-    array<uint8_t, 6> word;
+    vector<uint8_t> word;
 
     word[0] = command.address;
     word[1] = command.enabled;
@@ -20,10 +20,12 @@ int generateProtocolBytes(cmd command){
     word[4] = command.colorB;
     word[5] = command.brightness;
 
+    uint8_t crc = calculateCRC8(&word[0], 6);
+
+    word[6] = crc;
+
     send(word);
     return 1;
 }
-
-uint8_t crc8(const uint8_t*)
 
 
