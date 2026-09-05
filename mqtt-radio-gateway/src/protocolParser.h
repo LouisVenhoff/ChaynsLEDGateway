@@ -6,6 +6,6 @@
 #include <stdio.h>
 #include <nlohmann/json.hpp>
 
-int generateProtocolBytes(cmd command);
+vector<uint8_t> generateProtocolBytes(cmd command);
 
 #endif

@@ -10,7 +10,7 @@ int send(vector<uint8_t> word){
     }
 }
 
-int generateProtocolBytes(cmd command){
+vector<uint8_t> generateProtocolBytes(cmd command){
     vector<uint8_t> word;
 
     word.push_back(command.address);
@@ -22,10 +22,9 @@ int generateProtocolBytes(cmd command){
 
     uint8_t crc = calculateCRC8(&word[0], 6);
 
-    word[6] = crc;
+    word.push_back(crc);
 
-    send(word);
-    return 1;
+    return word;
 }
 
 

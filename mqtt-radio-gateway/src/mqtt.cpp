@@ -37,7 +37,7 @@ class callback : public virtual mqtt::callback {
         command.animation = animation;
         command.brightness = brightness;
 
-        generateProtocolBytes(command);
+        vector<uint8_t> byteData =  generateProtocolBytes(command);
     }
 };
 

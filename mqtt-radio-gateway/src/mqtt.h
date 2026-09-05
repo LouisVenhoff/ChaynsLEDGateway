@@ -19,6 +19,7 @@ struct cmd {
 };
 
 #include "protocolParser.h"
+#include "serial.h"
 
 extern const string SERVER_ADDRESS;
 extern const string CLIENT_ID;
