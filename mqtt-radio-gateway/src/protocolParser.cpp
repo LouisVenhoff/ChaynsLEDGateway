@@ -1,15 +1,5 @@
 #include "protocolParser.h"
 
-int send(vector<uint8_t> word){
-    for(int i = 0; i <= 6; i++){
-        std::cout << std::bitset<8>(word[i]) << " ";
-
-        if(i == 6){
-            std::cout << std::endl;
-        }
-    }
-}
-
 vector<uint8_t> generateProtocolBytes(cmd command){
     vector<uint8_t> word;
 
