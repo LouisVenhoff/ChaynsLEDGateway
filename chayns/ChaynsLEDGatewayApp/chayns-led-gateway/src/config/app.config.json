@@ -4,7 +4,7 @@
             "id": "wohnzimmer",
             "name": "Wohnzimmer",
             "devices": [
-                { "id": "sideboard-grip-ambiente", "name": "Fernsehschrank" }
+                { "id": "1", "name": "Fernsehschrank" }
             ]
         },
         {
@@ -16,7 +16,7 @@
             "id": "schlafzimmer",
             "name": "Schlafzimmer",
             "devices": [
-                { "id": "bed-ambiente", "name": "Bett" }
+                { "id": "2", "name": "Bett" }
             ]
         },
         {
