@@ -37,6 +37,8 @@ class callback : public virtual mqtt::callback {
         auto colorArray = data["color"];
         u_int8_t animation = data["animation"];
         int brightness = static_cast<int>(data["brightness"]);
+        u_int8_t commandType = data["commandType"];
+        
 
 
         cmd command;
@@ -47,6 +49,7 @@ class callback : public virtual mqtt::callback {
         command.colorB = colorArray[2].get<uint8_t>();
         command.animation = animation;
         command.brightness = brightness;
+        command.commandType = commandType;
 
         vector<uint8_t> byteData =  generateProtocolBytes(command);
 
@@ -77,7 +80,7 @@ int connectToBroker(mqtt::async_client& mqtt_client){
     try{
         mqtt_client.connect(conOpts) -> wait();
 
-        cout << "Connected to EMQX broker" << endl;
+        cout << "Connected to Chayns MQTT Broker" << endl;
         return 0;
     }
     catch(const mqtt::exception& exc){
