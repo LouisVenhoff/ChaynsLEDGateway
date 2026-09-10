@@ -12,6 +12,7 @@ export type LightStateDTO = {
     color: number[],
     animation: number,
     brightness: number,
+    commandType: number,
 }
 
 class LightState{
@@ -77,7 +78,8 @@ class LightState{
             enabled: this._enabled,
             color: this._color,
             animation: this._animation,
-            brightness: this._brightness
+            brightness: this._brightness,
+            commandType: 1,
         }
     }
 }
