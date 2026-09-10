@@ -4,7 +4,7 @@ using namespace std;
 
 int beginSerial(int* serial){
 
-    *serial = open("/dev/cu.debug-console", O_RDWR | O_NOCTTY);
+    *serial = open("/dev/ttyS0", O_RDWR | O_NOCTTY);
 
     if(*serial == -1){
         std::cout << "Serial interface not found!" << std::endl;
