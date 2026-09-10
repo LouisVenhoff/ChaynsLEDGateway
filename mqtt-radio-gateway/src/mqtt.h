@@ -16,6 +16,7 @@ struct cmd {
     uint8_t colorB;
     u_int8_t animation;
     u_int8_t brightness;
+    u_int8_t commandType;
 };
 
 #include "protocolParser.h"
