@@ -203,4 +203,7 @@ dist
 # End of https://www.toptal.com/developers/gitignore/api/kicad,node,cmake
 
 #chayns app
+chayns/chaynsLEDGatewayApp/chayns-led-gateway/build
 build
+
+mqtt-radio-gateway/build
