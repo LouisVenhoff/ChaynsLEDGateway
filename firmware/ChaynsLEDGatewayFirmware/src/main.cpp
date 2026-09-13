@@ -1,17 +1,26 @@
 #include <avr/io.h>
 #include <util/delay.h>
+#include <HAL/hal.h>
 
 int main()
 {
-    // PB1 als Ausgang
-    DDRB |= (1 << PB1);
-
+   
     while (1)
     {
-        PORTB |= (1 << PB1);
-        _delay_ms(10);
+        switchInternalLED(true);
+        _delay_ms(1000);
+        
+        switchInternalLED(false);
+        _delay_ms(1000);
 
-        PORTB &= ~(1 << PB1);
-        _delay_ms(10);
+
+        uint8_t deviceAddress = readDeviceAddress();
+
+        for(int i = 0; i < deviceAddress; i++){
+          switchInternalLED(true);
+          _delay_ms(200);
+          switchInternalLED(false);
+          _delay_ms(200);
+        }
     }
 }
