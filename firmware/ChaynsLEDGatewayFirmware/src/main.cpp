@@ -3,17 +3,15 @@
 
 int main()
 {
-    // PB5 als Ausgang
-    DDRB |= (1 << DDB5);
+    // PB1 als Ausgang
+    DDRB |= (1 << PB1);
 
     while (1)
     {
-        // PB5 HIGH
-        PORTB |= (1 << PORTB5);
-        _delay_ms(500);
+        PORTB |= (1 << PB1);
+        _delay_ms(10);
 
-        // PB5 LOW
-        PORTB &= ~(1 << PORTB5);
-        _delay_ms(500);
+        PORTB &= ~(1 << PB1);
+        _delay_ms(10);
     }
 }
